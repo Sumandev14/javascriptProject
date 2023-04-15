@@ -1,0 +1,41 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+
+.cart{
+    border: 5px solid #ddd;    
+}
+
+body{
+    background: linear-gradient(-135deg,#c850c0,#4158d0);
+
+}
+
+.table-form{
+    background: white;
+}
+
+.error{
+    color: red;
+}
+
+.add_button{
+    margin-left: 95%;
+    font-size: 30px;
+}
+#myModalForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#form{
+    background: rgb(182, 206, 151);
+}
+
+
+span.validation-error{
+    color:   red;
+    margin-left: 5px;
+}
+
+.hide{
+    display:none;
+}

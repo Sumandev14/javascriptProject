@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javaScript_05</title>
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+</head>
+
+<body>
+    <!-- Modal -->
+
+    <div class="card-body">
+        
+        <div class="modal fade" id="ExampleModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content cart ">
+                    <form id="form" onsubmit="return false;">
+                        <div class="text-center modal-header ">
+                            <h2 class="modal-title" id="myModalForm">Product Form</h2>
+                        </div>
+
+                        
+                            <h4 class="modal-title" id="myModalpersonal">Personal details:-</h4>
+                     
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                    <!-- ========personal details======= -->
+                                    <div id="employee-form" class="row justify-content-center mb-4" autocomplete="off">
+
+                                        <div class="col-10 fName mb-3">
+                                            <label for="FirstName">First Name: </label>
+                                            <label class="validation-error hide" id="fullNameValidationError">This field is required.</label>
+                                            <input type="text" name="fname" class="form-control" id="fname"
+                                                placeholder="Enter first name">
+                                            <span id="nameError" class="error"></span></b>
+                                            <!-- <span class="validation-error hide"  id="fullNameValidationError">This field is required</span></b> -->
+                                        </div>
+                                        <div class="col-10 lName mb-3">
+                                            <label for="LastName">last Name: </label>
+                                            <input type="text" name="lname" class="form-control" id="lname"
+                                                placeholder="Enter last name">
+                                            <span id="lastError" class="error"> </span></b>
+                                        </div>
+
+                                        <div class="col-10 birth mb-3">
+                                            <label for="DateOfBirth">Date-Of-Birth: </label>
+                                            <input type="date" name="dob" class="form-control" id="dob"
+                                                placeholder="Date-Of-Birth">
+                                            <span id="dobError" class="error"> </span></b>
+                                        </div>
+
+                                        <div class="col-10 jobalert mb-3">
+                                            <label for="job">Job: </label>
+                                            <input type="text" name="job" class="form-control" id="job"
+                                                placeholder="Enter your job">
+                                            <span id="jobError" class="error"> </span></b>
+                                        </div>
+
+                                        <div class="col-10 mobile mb-3">
+                                            <label for="monileNo">Mobile No: </label>
+                                            <input type="number" name="phone" class="form-control" id="phone"
+                                                placeholder="Enter Mobile number">
+                                            <span id="mobileError" class="error"> </span></b>
+                                        </div>
+
+                                        <div class="col-10 emailId mb-3">
+                                            <label for="email" id="email-label">Email: </label>
+                                            <input type="email" name="email" class="form-control" id="email"
+                                                placeholder="Enter your email">
+                                            <span id="emailError" class="error"> </span></b>
+
+                                        </div>
+
+                                        <div class="col-10 addressId mb-2">
+                                            <label for="address">Address: </label>
+                                            <textarea type="text" name="address" class="form-control" id="address"
+                                                placeholder="Enter address"></textarea>
+                                            <span id="addressError" class="error"> </span></b>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- ==========product section============ -->
+                                    <div class="container product" id="product">
+
+                                        <div class="modal-header row">
+                                            <div class="col-6 fluied-start">
+                                                <h4 class="title">Product:-</h4>
+                                            </div>
+
+                                            <div class="col-6 div fluied-end add_button ">
+                                                    <button  class="bg-primary" id="btn-add" onclick="addDynamicRow()"><i class="bi bi-plus-lg "></i></button>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="row text-center mt-5 d-flex table_section">
+
+                                            <div class="col-2">
+                                                <span class="pname">Product Name</span>
+                                            </div>
+
+                                            <div class="col-1">
+                                                <span class="ptype">Type</span>
+                                            </div>
+
+                                            <div class="col-1">
+                                                <span class="pprice">Price</span>
+                                            </div>
+
+                                            <div class="col-2">
+                                                <span class="pdiscount">Discount(%)</span>
+                                            </div>
+
+                                            <div class="col-2">
+                                                <span class="pfprice">Final price</span>
+                                            </div>
+
+                                            <div class="col-2">
+                                                <span class="ppayment">Payment</span>
+                                            </div>
+
+                                            <div class="col-1">
+                                                <span class="pstatus">Status</span>
+                                            </div>
+
+                                        </div>
+
+                                        <!-- =====first default row===== -->
+
+                                        <div id="product" class="row d-flex product_default mt-3">
+                                            <div class="col-2">
+                                                <input type="text" class="form-control productName" id="productName1"
+                                                    placeholder="Product Name">
+                                                <span id="productError1" class="error"> </span></b>
+                                            </div>
+
+                                            <div class="col-1">
+                                                <select class="form-control type" id="productType1">
+                                                    <option value="chose">chose</option>
+                                                    <option value="study">accessories</option>
+                                                    <option value="health">health</option>
+                                                    <option value="home">home</option>
+                                                    <option value="wellness">wellness</option>
+                                                </select>
+                                                <span id="typeError1" class="error"> </span></b>
+                                            </div>
+
+                                            <div class="col-1">
+                                                <input type="number" class="form-control price" id="price1"
+                                                    placeholder="Price">
+                                                <span id="priceError1" class="error"> </span></b>
+                                            </div>
+
+                                            <div class="col-2">
+                                                <input type="number" class="form-control discount" id="discount1"
+                                                    placeholder="Discount">
+                                                <span id="discountError1" class="error"> </span></b>
+                                            </div>
+
+                                            <div class="col-2">
+                                                <input type="number" class="form-control finalPrice" id="finalPrice1"
+                                                    placeholder="Final price">
+                                                <span id="finalPriceError1" class="error"> </span></b>
+                                            </div>
+
+                                            <div class="col-2">
+                                                <input type="text" class="form-control payment" id="payment1"
+                                                    placeholder="Payment">
+                                                <span id="paymentError1" class="error"> </span></b>
+                                            </div>
+
+                                            <div class="col-1">
+                                                <select class="form-control status" id="status1">
+                                                    <option value="chose">chose</option>
+                                                    <option value="successful">successful</option>
+                                                    <option value="cancel">cancel</option>
+                                                    <option value="pending">pending</option>
+                                                </select>
+                                                <span id="statusError1" class="error"> </span></b>
+                                            </div>
+
+                                        </div>
+
+                                        <!-- ======second default value==== -->
+
+                                        <div id="product" class="row d-flex product_default2 mt-3">
+                                            <div class="col-2">
+                                                <input type="text" class="form-control productName" id="productName2"
+                                                    placeholder="Product Name">
+                                                <span id="productError2" class="error"> </span></b>
+                                            </div>
+
+                                            <div class="col-1">
+                                                <select class="form-control type" id="productType2">
+                                                    <option value="chose">chose</option>
+                                                    <option value="study">accessories</option>
+                                                    <option value="health">health</option>
+                                                    <option value="home">home</option>
+                                                    <option value="wellness">wellness</option>
+                                                </select>
+                                                <span id="typeError2" class="error"> </span></b>
+                                            </div>
+
+                                            <div class="col-1">
+                                                <input type="number" class="form-control price" id="price2"
+                                                    placeholder="Price">
+                                                <span id="priceError2" class="error"> </span></b>
+                                            </div>
+
+                                            <div class="col-2">
+                                                <input type="number" class="form-control discount" id="discount2"
+                                                    placeholder="Discount">
+                                                <span id="discountError2" class="error"> </span></b>
+                                            </div>
+
+                                            <div class="col-2">
+                                                <input type="number" class="form-control finalPrice" id="finalPrice2"
+                                                    placeholder="Final price">
+                                                <span id="finalPriceError2" class="error"> </span></b>
+                                            </div>
+
+                                            <div class="col-2">
+                                                <input type="text" class="form-control payment" id="payment2"
+                                                    placeholder="Payment">
+                                                <span id="paymentError2" class="error"> </span></b>
+                                            </div>
+
+                                            <div class="col-1">
+                                                <select class="form-control status" id="status2">
+                                                    <option value="chose">chose</option>
+                                                    <option value="successful">successful</option>
+                                                    <option value="cancel">cancel</option>
+                                                    <option value="pending">pending</option>
+                                                </select>
+                                                <span id="statusError2" class="error"> </span></b>
+                                            </div>
+
+                                        </div>
+
+                                        <div id="dynamicRow">
+
+                                        </div>
+                                                            
+                                    </div>
+                                    <div class="text-center add mt-3 mb-3" id="buttons">      
+                                    </div>
+
+
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-dark bg-secondary"
+                                            data-dismiss="modal" onclick="closeForm()" >Close</button>
+                                    </div>
+
+                                
+                            </div>
+                        </div>
+                    
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="container table-form border fluid-center mt-5">
+        <!-- Button modal -->
+        <div class="float-end mt-3 mb-3">
+            <button class="btn btn-success badge-pill" data-toggle="modal" data-target="#ExampleModel" onclick="openForm()">
+                Open form
+            </button>
+        </div>
+ 
+
+        <div class="container table-section mb-5">
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Date-of-birth</th>
+                        <th>job</th>
+                        <th>Phone No.</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+
+        <!-- start: Delete Coupon Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                 <h3 class="modal-title" id="myModalLabel">Warning!</h3>
+
+            </div>
+            <div class="modal-body">
+                 <h4> Are you sure you want to DELETE?</h4>
+
+            </div>
+            <!--/modal-body-collapse -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btnDelteYes" href="#">Yes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+            </div>
+            <!--/modal-footer-collapse -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+    </div>
+    </div>
+
+
+
+
+
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+    <script src="second.js" type="module"></script>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+{
+   "Detail": [
+        {
+            "id":"0",
+            "firstName": "sandhya",
+            "lastName": "suman",
+            "birth": "27/09/2000",
+            "job": "student",
+            "phoneNo": "7410852963",
+            "email": "sandhya27@gmail.com",
+            "address": "ambli",
+            "product_Data" : [
+        
+                {
+                    "productName" : "bootstarp",
+                    "type" : "wellness",
+                    "price": "1000",
+                    "discount" : "0",
+                    "finalPrice" : "1000",
+                    "payment" : "2000",
+                    "status" : "pending"
+                },
+                {
+                    "productName" : "java",
+                    "type" : "home",
+                    "price": "5000",
+                    "discount" : "5",
+                    "finalPrice" : "2000",
+                    "payment" : "2000",
+                    "status" : "cancel"
+                    }
+            ]
+        },
+
+        {
+            "id":"1",
+            "firstName": "suman",
+            "lastName": "sandhya",
+            "birth": "27/03/2000",
+            "job": "student",
+            "phoneNo": "7410852963",
+            "email": "sandhya257@gmail.com",
+            "address": "ambli",
+
+            
+            "product_Data" : [
+                {
+                    "productName" : "javaScript",
+                    "type" : "health",
+                    "price": "5000",
+                    "discount" : "5",
+                    "finalPrice" : "2000",
+                    "payment" : "2000",
+                    "status" : "cancel"
+                },
+                {
+                    "productName" : "java",
+                    "type" : "wellness",
+                    "price": "5000",
+                    "discount" : "5",
+                    "finalPrice" : "2000",
+                    "payment" : "2000",
+                    "status" : "pending"
+                    }
+            ]
+        }
+
+    ]
+  
+}
